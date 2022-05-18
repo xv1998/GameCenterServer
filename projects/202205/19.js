@@ -6,10 +6,10 @@
 
 var removeNthFromEnd = function (head, n) {
   if (head.next === null && n === 1) return null;
-  const h = new ListNode();
-  h.next = head;
-  deep(h, n, 0);
-  return h.next;
+  let root = new ListNode();
+  root.next = head;
+  deep(root, n, 0);
+  return root.next;
 };
 
 const deep = (head, n, m) => {
@@ -26,9 +26,10 @@ const deep = (head, n, m) => {
     head = next;
   }
   return length;
-}
+};
 
 function ListNode(val, next) {
-  this.val = (val === undefined ? 0 : val)
-  this.next = (next === undefined ? null : next)
+  this.val = val === undefined ? 0 : val;
+  this.next = next === undefined ? null : next;
 }
+console.log("aa");
