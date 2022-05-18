@@ -11,7 +11,8 @@
  * 思路：
  * 排序好：[-4,-1,-1,0,1,2]
  * 1. nums[i] > 0: 因为后面已经排序好，所以正数相加不可能等于0，直接返回结果
- * 2. 
+ * 2. 当双指针遇到了和上一次一样的数字，证明之前已经验证过了，直接往中间挪
+ * 3. 当两指针值加起来小于剩余值，证明左指针太小了，left++，同理右边
  */
 var threeSum = function(nums = []) {
   if(nums.length < 3)return [];
@@ -20,17 +21,16 @@ var threeSum = function(nums = []) {
     return a - b;
   });
   let map = new Map();
-  for(let i = 0; i < arr.length; i++){
-    if(map.get(arr[i])) continue;
-    if(arr[i] > 0) break;
+  for(let i = 0; arr[i] <= 0; i++){
+    if(i && arr[i-1] === arr[i]) continue;
     let left = i+1;
     let right = arr.length - 1;
     const rest = 0 - arr[i];
     while(left < right){
-      if(arr[left] + arr[right] < rest){
+      if((left !== i+1 && arr[left-1] === arr[left]) || arr[left] + arr[right] < rest){
         left++;
       }
-      else if(arr[left] + arr[right] > rest){
+      else if(arr[right+1] === arr[right] || arr[left] + arr[right] > rest){
         right--;
       }else if(arr[left] + arr[right] === rest){
         result.push([arr[i], arr[left], arr[right]]);
@@ -38,7 +38,6 @@ var threeSum = function(nums = []) {
         right--;
       }
     }
-    map.set(arr[i], true);
   }
   return result;
 }
