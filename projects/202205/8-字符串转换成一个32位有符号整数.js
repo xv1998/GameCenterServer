@@ -1,6 +1,6 @@
 /**
  * 请你来实现一个 myAtoi(string s) 函数，使其能将字符串转换成一个 32 位有符号整数（类似 C/C++ 中的 atoi 函数）。
- * 
+ *
  * 函数 myAtoi(string s) 的算法如下：
  * 读入字符串并丢弃无用的前导空格
  * 检查下一个字符（假设还未到字符末尾）为正还是负号，读取该字符（如果有）。 确定最终结果是负数还是正数。 如果两者都不存在，则假定结果为正。
@@ -10,29 +10,28 @@
  * 返回整数作为最终结果。
  */
 
-
 /**
  * 思路：
  */
 
 var myAtoi = function (s) {
   const max = 2147483648;
-  const raw = String(s).trim().split(' ')[0];
-  const sign = raw.match(/^-|^\+/)?.[0] || '+';
+  const raw = String(s).trim().split(" ")[0];
+  const sign = raw.match(/^-|^\+/)?.[0] || "+";
   let result = sign;
   let i = raw.match(/^-|^\+/)?.[0] ? 1 : 0;
-  for(; i < raw.length; i++){
-    if(String(Number(raw[i])) === 'NaN'){
+  for (; i < raw.length; i++) {
+    if (String(Number(raw[i])) === "NaN") {
       break;
     }
-    result+=raw[i];
+    result += raw[i];
   }
-  if(Number(result) > max - 1){
+  if (Number(result) > max - 1) {
     return max - 1;
-  }else if(Number(result) < max * -1){
+  } else if (Number(result) < max * -1) {
     return max * -1;
   }
   return Number(result) || 0;
 };
 
-console.log(myAtoi('-88827   5655  U'))
+console.log(myAtoi("-88827   5655  U"));

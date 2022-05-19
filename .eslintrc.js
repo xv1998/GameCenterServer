@@ -4,7 +4,7 @@ module.exports = {
     "plugin:prettier/recommended"
   ],
   parserOptions: {
-    ecmaVersion: 6,
+    ecmaVersion: 2020,
     ecmaFeatures: {
       experimentalObjectRestSpread: true
     }

@@ -1,9 +1,9 @@
 /**
  * 题目：给定一个仅包含数字 2-9 的字符串，返回所有它能表示的字母组合。答案可以按 任意顺序 返回。给出数字到字母的映射与电话按键相同
- * 
+ *
  * 输入：digits = "23"
  * 输出：["ad","ae","af","bd","be","bf","cd","ce","cf"]
- * 
+ *
  */
 
 /**
@@ -11,21 +11,20 @@
  */
 
 var letterCombinations = function (digits) {
-  if(!digits.length) return [];
-  const letters = ['abc','def','ghi','jkl','mno','pqrs','tuv','wxyz']
-  let que = [''];
-  for(let i of digits){
+  if (!digits.length) return [];
+  const letters = ["abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"];
+  let que = [""];
+  for (let i of digits) {
     const length = que.length;
-    for(let m = 0; m < length; m++){
+    for (let m = 0; m < length; m++) {
       let num = que.shift();
-      for(let j of letters[Number(i) - 2]){
-        que.push(num+j);
+      for (let j of letters[Number(i) - 2]) {
+        que.push(num + j);
       }
     }
   }
-  
+
   return que;
 };
 
-
-console.log(letterCombinations("23"))
+console.log(letterCombinations("23"));

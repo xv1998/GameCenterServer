@@ -10,18 +10,18 @@
 var reverse = function (x) {
   const max = 2147483648;
   let start = 0;
-  if(x < 0){
+  if (x < 0) {
     start = 1;
   }
   const temp = String(x).slice(start);
-  let s = '';
-  for(let i = temp.length - 1; i >= 0 ;i--){
+  let s = "";
+  for (let i = temp.length - 1; i >= 0; i--) {
     s += temp[i];
   }
-  if(start && Number(s) > max - 1 || (!start && Number(s) > max)){
+  if ((start && Number(s) > max - 1) || (!start && Number(s) > max)) {
     return 0;
   }
-  return Number(`${start ? '-': ''}${s}`)
+  return Number(`${start ? "-" : ""}${s}`);
 };
 
-console.log(reverse(123))
+console.log(reverse(123));
