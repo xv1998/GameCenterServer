@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container{
+      width: 400px;
+      height: 400px;
+      border: 1px black solid;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .container img{
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .content{
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .item{
+      width: 100px;
+      height: 100px;
+      margin: 50% auto;
+      background-color: rgb(143, 116, 168);
+    }
+    .input{
+      font-family: Arial, Helvetica, sans-serif;
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img class="img" src="https://5b0988e595225.cdn.sohucs.com/images/20190619/d11cadf7696d48a6a2bf77fce3d4177c.jpeg" alt="">
+  </div>
+  <div class="container">
+    <div class="content">啊啊啊啊啊啊啊</div>
+  </div>
+  <div class="container">
+    <div class="item"></div>
+  </div>
+  <input type="text" class="input" placeholder="请填写"/>
+</body>
+</html>
